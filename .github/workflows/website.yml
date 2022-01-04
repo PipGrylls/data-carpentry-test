@@ -59,13 +59,19 @@ jobs:
         with:
           files: "./collections/_episodes_rmd"
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Setup Pandoc
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: r-lib/actions/setup-pandoc@v1
 
-      - uses: r-lib/actions/setup-r@v1
+      - name: Setup R
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: r-lib/actions/setup-r@v1
         with:
           r-version: 'release'
 
-      - uses: r-lib/actions/setup-renv@v2
+      - name: Setup Renv
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: r-lib/actions/setup-renv@v2
 
       - name: Render R markdown
         if: steps.check_files.outputs.files_exists == 'true'
