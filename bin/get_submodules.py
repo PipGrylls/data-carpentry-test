@@ -91,6 +91,9 @@ for n, lesson_info in enumerate(website_config['lessons']):
                 log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
 
         # Move figures
+        # Things to move to ./ -- only for Rmd set up files
+        if lesson_type == LessonType.r_markdown:
+            copy_tree(f"submodules/{lesson_name}/fig", f"{dest}/fig/")
         copy_tree(f"submodules/{lesson_name}/fig", "fig/")
 
 # Now need to do the same for slides, but have to do it afterwards because we

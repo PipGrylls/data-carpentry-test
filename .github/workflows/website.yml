@@ -76,8 +76,6 @@ jobs:
       - name: Render R markdown
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          Rscript -e 'print(getwd())'
-          Rscript -e 'file.exists("fig/rstudio-screenshot.png")'
           RMD_PATH=$(find ./collections/_episodes_rmd -name '*.Rmd')
           Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f, knit_root_dir=getwd())' ${RMD_PATH[*]}
           git add ${RMD_PATH[*]/.Rmd/.md}
