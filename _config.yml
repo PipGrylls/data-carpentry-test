@@ -44,19 +44,19 @@ helper:
 
 # Details about the lessons
 lessons:
-   - title: Best Practices in Data Organisation Using Spreadsheets
-     gh-name: spreadsheets
-     type: episode
-     branch: gh-pages
-     date: 6 January 2022
-     start-time: 15:00
+  - title: Best Practices in Data Organisation Using Spreadsheets
+    gh-name: spreadsheets
+    type: episode
+    branch: gh-pages
+    date: 6 January 2022
+    start-time: 15:00
 
-   - title: Data Cleaning with OpenRefine
-     gh-name: openrefine-data-cleaning
-     type: episode
-     branch: gh-pages
-     date: 7 January 2022
-     start-time: 15:00
+  - title: Data Cleaning with OpenRefine
+    gh-name: openrefine-data-cleaning
+    type: episode
+    branch: gh-pages
+    date: 7 January 2022
+    start-time: 15:00
 
   - title: Automating Tasks with the Unix Shell  # Lesson title
     gh-name: shell-novice                        # Name of the GitHub repository for the lesson at https://github:com/Southampton-RSG-Training:
