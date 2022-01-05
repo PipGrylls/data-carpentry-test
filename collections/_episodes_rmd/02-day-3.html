@@ -408,11 +408,11 @@ write_csv(surveys_complete, &quot;data/surveys_complete.csv&quot;)</code></pre>
   geom_point()</code></pre>
 <p>The <code>+</code> in the <strong><code>ggplot2</code></strong> package is particularly useful because it allows you to modify existing <code>ggplot</code> objects. This means you can easily set up plot “templates” and conveniently explore different types of plots, so the above plot can also be generated with code like this:</p>
 <pre class="r"><code># Assign plot to a variable
-surveys_plot &lt;- ggplot(data = surveys_complete, 
+surveys_plot &lt;- ggplot(data = surveys_complete,
                        mapping = aes(x = weight, y = hindfoot_length))
 
 # Draw the plot
-surveys_plot + 
+surveys_plot +
     geom_point()</code></pre>
 <p><strong>Notes</strong></p>
 <ul>
@@ -441,8 +441,7 @@ library(&quot;hexbin&quot;)</code></pre>
 </blockquote>
 <blockquote>
 <h3 id="stretch-challenge-intermediate---15-mins">Stretch Challenge (Intermediate - 15 mins)</h3>
-<p>Add a smoothing line to the plot so that it is easier to interpret. You could also investigate whether a contour plot or heatmap improves clarity of interpretation.<br />
-Hint: Have a look at the <a href="https://ggplot2.tidyverse.org/"><strong><code>ggplot2</code></strong> cheat sheet</a></p>
+<p>Add a smoothing line to the plot so that it is easier to interpret. You could also investigate whether a contour plot or heatmap improves clarity of interpretation. Hint: Have a look at the <a href="https://ggplot2.tidyverse.org/"><strong><code>ggplot2</code></strong> cheat sheet</a></p>
 </blockquote>
 </div>
 <div id="building-your-plots-iteratively" class="section level2">
@@ -467,7 +466,7 @@ Hint: Have a look at the <a href="https://ggplot2.tidyverse.org/"><strong><code>
 Answer
 </h3>
 <div style="background: #fff;">
-<pre class="r"><code>ggplot(data = surveys_complete, 
+<pre class="r"><code>ggplot(data = surveys_complete,
        mapping = aes(x = species_id, y = weight)) +
    geom_point(aes(color = plot_type))</code></pre>
 </div>
@@ -529,12 +528,12 @@ Answer
 <div id="integrating-the-pipe-operator-with-ggplot2" class="section level2">
 <h2>Integrating the pipe operator with ggplot2</h2>
 <p>In the previous lesson, we saw how to use the pipe operator <code>%&gt;%</code> to use different functions in a sequence and create a coherent workflow. We can also use the pipe operator to pass the <code>data</code> argument to the <code>ggplot()</code> function. The hard part is to remember that to build your ggplot, you need to use <code>+</code> and not <code>%&gt;%</code>.</p>
-<pre class="r"><code>yearly_counts %&gt;% 
+<pre class="r"><code>yearly_counts %&gt;%
     ggplot(mapping = aes(x = year, y = n, color = genus)) +
     geom_line()</code></pre>
 <p>The pipe operator can also be used to link data manipulation with consequent data visualization.</p>
 <pre class="r"><code>yearly_counts_graph &lt;- surveys_complete %&gt;%
-    count(year, genus) %&gt;% 
+    count(year, genus) %&gt;%
     ggplot(mapping = aes(x = year, y = n, color = genus)) +
     geom_line()
 
@@ -555,18 +554,18 @@ yearly_counts_graph</code></pre>
   geom_line() +
   facet_wrap(facets =  vars(genus))</code></pre>
 <p>Usually plots with white background look more readable when printed. We can set the background to white using the function <code>theme_bw()</code>. Additionally, you can remove the grid:</p>
-<pre class="r"><code>ggplot(data = yearly_sex_counts, 
+<pre class="r"><code>ggplot(data = yearly_sex_counts,
        mapping = aes(x = year, y = n, color = sex)) +
   geom_line() +
   facet_grid(rows = vars(sex), cols =  vars(genus))</code></pre>
 <p>You can also organise the panels only by rows (or only by columns):</p>
 <pre class="r"><code># One column, facet by rows
-ggplot(data = yearly_sex_counts, 
+ggplot(data = yearly_sex_counts,
        mapping = aes(x = year, y = n, color = sex)) +
   geom_line() +
   facet_grid(rows = vars(genus))</code></pre>
 <pre class="r"><code># One row, facet by column
-ggplot(data = yearly_sex_counts, 
+ggplot(data = yearly_sex_counts,
        mapping = aes(x = year, y = n, color = sex)) +
   geom_line() +
   facet_grid(cols = vars(genus))</code></pre>
@@ -576,7 +575,7 @@ ggplot(data = yearly_sex_counts,
 <h2><strong><code>ggplot2</code></strong> themes</h2>
 <p>Usually plots with white background look more readable when printed. Every single component of a <code>ggplot</code> graph can be customized using the generic <code>theme()</code> function, as we will see below. However, there are pre-loaded themes available that change the overall appearance of the graph without much effort.</p>
 <p>For example, we can change our previous graph to have a simpler white background using the <code>theme_bw()</code> function:</p>
-<pre class="r"><code> ggplot(data = yearly_sex_counts, 
+<pre class="r"><code> ggplot(data = yearly_sex_counts,
         mapping = aes(x = year, y = n, color = sex)) +
      geom_line() +
      facet_wrap(vars(genus)) +
@@ -629,7 +628,7 @@ the [**`extrafont`** package](https://github.com/wch/extrafont), and follow the
 instructions included in the README for this package.
 
 After our manipulations, you may notice that the values on the x-axis are still
-not properly readable. Let&#39;s change the orientation of the labels and adjust 
+not properly readable. Let&#39;s change the orientation of the labels and adjust
 them vertically and horizontally so they don&#39;t overlap. You can use a 90 degree
 angle, or experiment to find the appropriate angle for diagonally oriented
 labels:</code></pre>
@@ -648,8 +647,8 @@ labels:</code></pre>
 
 If you like the changes you created better than the default theme, you can save
 them as an object to be able to easily apply them to other plots you may create:</code></pre>
-<pre class="r"><code>grey_theme &lt;- theme(axis.text.x = element_text(colour=&quot;grey20&quot;, size = 12, 
-                                               angle = 90, hjust = 0.5, 
+<pre class="r"><code>grey_theme &lt;- theme(axis.text.x = element_text(colour=&quot;grey20&quot;, size = 12,
+                                               angle = 90, hjust = 0.5,
                                                vjust = 0.5),
                     axis.text.y = element_text(colour = &quot;grey20&quot;, size = 12),
                     text=element_text(size = 16))
@@ -663,7 +662,7 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
 &gt;
 &gt; With all of this information in hand, please take another five minutes to either
 &gt; improve one of the plots generated in this exercise or create a beautiful graph
-&gt; of your own. Use the RStudio [**`ggplot2`** cheat sheet](https://ggplot2.tidyverse.org/) 
+&gt; of your own. Use the RStudio [**`ggplot2`** cheat sheet](https://ggplot2.tidyverse.org/)
 &gt; for inspiration.
 &gt;
 &gt; Here are some ideas:
@@ -675,42 +674,42 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
 
 ## Arranging and exporting plots
 
-Faceting is a great tool for splitting one plot into multiple plots, but 
+Faceting is a great tool for splitting one plot into multiple plots, but
 sometimes you may want to produce a single figure that contains multiple plots
-using different variables or even different data frames. The **`gridExtra`** 
-package allows us to combine separate ggplots into a single figure using 
+using different variables or even different data frames. The **`gridExtra`**
+package allows us to combine separate ggplots into a single figure using
 `grid.arrange()`:</code></pre>
 <pre class="r"><code>library(gridExtra)
 
-spp_weight_boxplot &lt;- ggplot(data = surveys_complete, 
+spp_weight_boxplot &lt;- ggplot(data = surveys_complete,
                              aes(x = species_id, y = weight)) +
   geom_boxplot() +
-  labs(x = &quot;Species&quot;, 
+  labs(x = &quot;Species&quot;,
        y = expression(log[10](Weight))) +
-  scale_y_log10() + 
+  scale_y_log10() +
   labs()
 
-spp_count_plot &lt;- ggplot(data = yearly_counts, 
+spp_count_plot &lt;- ggplot(data = yearly_counts,
                          aes(x = year, y = n, color = genus)) +
-  geom_line() + 
+  geom_line() +
   labs(x = &quot;Year&quot;, y = &quot;Abundance&quot;)
 
 grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, widths = c(4, 6))
- 
+
 ```
 
-In addition to the `ncol` and `nrow` arguments, used to make simple 
-arrangements, there are tools for [constucting more complex layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html). 
+In addition to the `ncol` and `nrow` arguments, used to make simple
+arrangements, there are tools for [constucting more complex layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html).
 
 After creating your plot, you can save it to a file in your favorite format. The
-Export tab in the **Plot** pane in RStudio will save your plots at low 
-resolution, which will not be accepted by many journals and will not scale well 
-for posters. 
+Export tab in the **Plot** pane in RStudio will save your plots at low
+resolution, which will not be accepted by many journals and will not scale well
+for posters.
 
-Instead, use the `ggsave()` function, which allows you easily change the 
-dimension and resolution of your plot by adjusting the appropriate arguments 
+Instead, use the `ggsave()` function, which allows you easily change the
+dimension and resolution of your plot by adjusting the appropriate arguments
 (`width`, `height` and `dpi`):</code></pre>
-<pre class="r"><code>my_plot &lt;- ggplot(data = yearly_sex_counts, 
+<pre class="r"><code>my_plot &lt;- ggplot(data = yearly_sex_counts,
                   aes(x = year, y = n, color = sex)) +
     geom_line() +
     facet_wrap(vars(genus)) +
@@ -726,15 +725,15 @@ dimension and resolution of your plot by adjusting the appropriate arguments
 ggsave(&quot;name_of_file.png&quot;, my_plot, width = 15, height = 10)
 
 ## This also works for grid.arrange() plots
-combo_plot &lt;- grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, 
+combo_plot &lt;- grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2,
                            widths = c(4, 6))
 ggsave(&quot;combo_plot_abun_weight.png&quot;, combo_plot, width = 10, dpi = 300)
 ```
 
-Note: The parameters `width` and `height` also determine the font size in the 
+Note: The parameters `width` and `height` also determine the font size in the
 saved plot.</code></pre>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-01-04 ‒ 🕢 16:29:23
+Page built on: 📆 2022-01-05 ‒ 🕢 09:55:47
 </p>
 </div>
 

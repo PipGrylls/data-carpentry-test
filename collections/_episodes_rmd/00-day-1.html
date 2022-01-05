@@ -522,7 +522,7 @@ pre code {
 <li><a href="https://stackoverflow.com/questions/tagged/r?tab=Votes">Stack Overflow’s <code>[r]</code>-tag</a>: Most questions have already been answered, but the challenge is to use the right words in the search to find the answers. If your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on <a href="https://stackoverflow.com/help/how-to-ask">how to ask a good question</a>.</li>
 </ul>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-01-04 ‒ 🕢 16:29:14
+Page built on: 📆 2022-01-05 ‒ 🕢 09:55:36
 </p>
 </div>
 </div>
@@ -852,8 +852,8 @@ animals[animals == &quot;cat&quot; | animals == &quot;rat&quot;] # returns both 
 <pre><code>#&gt; [1] &quot;rat&quot; &quot;dog&quot; &quot;cat&quot;</code></pre>
 <blockquote>
 <h3 id="stretch-challenge-difficult---10-mins">Stretch Challenge (Difficult - 10 mins)</h3>
-<pre class="r"><code>creatures &lt;- c(&#39;rat&#39;, &#39;sheep&#39;,&#39;squirrel&#39;, &#39;tiger&#39;, &#39;whale&#39;, &#39;dolphin&#39;, 
-               &#39;jellyfish&#39;,&#39;octopus&#39;, &#39;shark&#39;) 
+<pre class="r"><code>creatures &lt;- c(&#39;rat&#39;, &#39;sheep&#39;,&#39;squirrel&#39;, &#39;tiger&#39;, &#39;whale&#39;, &#39;dolphin&#39;,
+               &#39;jellyfish&#39;,&#39;octopus&#39;, &#39;shark&#39;)
 mammals &lt;- c(&#39;rat&#39;, &#39;sheep&#39;,&#39;squirrel&#39;, &#39;tiger&#39;, &#39;whale&#39;, &#39;dolphin&#39;)
 sea_creatures &lt;- c(&#39;jellyfish&#39;, &#39;whale&#39;, &#39;octopus&#39;, &#39;shark&#39;, &#39;dolphin&#39;)</code></pre>
 Create a vector of creatures that are either mammals or sea creatures but not both
@@ -862,7 +862,7 @@ Create a vector of creatures that are either mammals or sea creatures but not bo
 Answer
 </h3>
 <div style="background: #fff;">
-<pre class="r"><code> creatures[!(creatures %in% mammals &amp; creatures %in% sea_creatures)] </code></pre>
+<pre class="r"><code> creatures[!(creatures %in% mammals &amp; creatures %in% sea_creatures)]</code></pre>
 </div>
 </div>
 </blockquote>
@@ -881,11 +881,11 @@ max(heights, na.rm = TRUE)</code></pre>
 <pre class="r"><code>## Extract those elements which are not missing values.
 heights[!is.na(heights)]
 
-## Returns the object with incomplete cases removed. 
+## Returns the object with incomplete cases removed.
 #The returned object is an atomic vector of type `&quot;numeric&quot;` (or #`&quot;double&quot;`).
 na.omit(heights)
 
-## Extract those elements which are complete cases. 
+## Extract those elements which are complete cases.
 #The returned object is an atomic vector of type `&quot;numeric&quot;` (or #`&quot;double&quot;`).
 heights[complete.cases(heights)]</code></pre>
 <p>Recall that you can use the <code>typeof()</code> function to find the type of your atomic vector.</p>
@@ -905,7 +905,7 @@ Answer
 <pre class="r"><code>heights &lt;- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 
 # 1.
-heights_no_na &lt;- heights[!is.na(heights)] 
+heights_no_na &lt;- heights[!is.na(heights)]
 # or
 heights_no_na &lt;- na.omit(heights)
 # or
@@ -1137,19 +1137,19 @@ Answer
 <h2>Indexing and subsetting data frames</h2>
 <p>Our survey data frame has rows and columns (it has 2 dimensions), if we want to extract some specific data from it, we need to specify the “coordinates” we want from it. Row numbers come first, followed by column numbers. However, note that different ways of specifying these coordinates lead to results with different classes.</p>
 <pre class="r"><code># first element in the first column of the data frame (as a vector)
-surveys[1, 1]   
+surveys[1, 1]
 # first element in the 6th column (as a vector)
-surveys[1, 6]   
+surveys[1, 6]
 # first column of the data frame (as a vector)
-surveys[, 1]    
+surveys[, 1]
 # first column of the data frame (as a data.frame)
-surveys[1]      
+surveys[1]
 # first three elements in the 7th column (as a vector)
-surveys[1:3, 7] 
+surveys[1:3, 7]
 # the 3rd row of the data frame (as a data.frame)
-surveys[3, ]    
+surveys[3, ]
 # equivalent to head_surveys &lt;- head(surveys)
-head_surveys &lt;- surveys[1:6, ] </code></pre>
+head_surveys &lt;- surveys[1:6, ]</code></pre>
 <p><code>:</code> is a special function that creates numeric vectors of integers in increasing or decreasing order, test <code>1:10</code> and <code>10:1</code> for instance.</p>
 <p>You can also exclude certain indices of a data frame using the “<code>-</code>” sign:</p>
 <pre class="r"><code>surveys[, -1]          # The whole data frame, except the first column
@@ -1209,8 +1209,7 @@ Answer
 <h2>Formatting Dates</h2>
 <p>One of the most common issues that new (and experienced!) R users have is converting date and time information into a variable that is appropriate and usable during analyses. As a reminder from earlier in this lesson, the best practice for dealing with date data is to ensure that each component of your date is stored as a separate variable. Using <code>str()</code>, We can confirm that our data frame has a separate column for day, month, and year, and that each contains integer values.</p>
 <pre class="r"><code>str(surveys)</code></pre>
-<p>We are going to use the <code>ymd()</code> function from the package <strong><code>lubridate</code></strong> (which belongs to the <strong><code>tidyverse</code></strong>; learn more <a href="https://www.tidyverse.org/">here</a>).<br />
-When you load the <strong><code>tidyverse</code></strong> (<code>library(&quot;tidyverse&quot;)</code>), the core packages get loaded. <strong><code>lubridate</code></strong> however does not belong to the core tidyverse, so you have to load it explicitly with <code>library(lubridate)</code></p>
+<p>We are going to use the <code>ymd()</code> function from the package <strong><code>lubridate</code></strong> (which belongs to the <strong><code>tidyverse</code></strong>; learn more <a href="https://www.tidyverse.org/">here</a>). When you load the <strong><code>tidyverse</code></strong> (<code>library(&quot;tidyverse&quot;)</code>), the core packages get loaded. <strong><code>lubridate</code></strong> however does not belong to the core tidyverse, so you have to load it explicitly with <code>library(lubridate)</code></p>
 <p>Start by loading the required package:</p>
 <pre class="r"><code>library(&quot;lubridate&quot;)</code></pre>
 <p><code>ymd()</code> takes a vector representing year, month, and day, and converts it to a <code>Date</code> vector. <code>Date</code> is a class of data recognized by R as being a date and can be manipulated as such. The argument that the function requires is a character vector formatted as “YYYY-MM-DD”.</p>
@@ -1219,7 +1218,7 @@ When you load the <strong><code>tidyverse</code></strong> (<code>library(&quot;t
 str(my_date)</code></pre>
 <p>Now let’s paste the year, month, and day separately - we get the same result:</p>
 <pre class="r"><code># sep indicates the character to use to separate each component
-my_date &lt;- ymd(paste(&quot;2015&quot;, &quot;1&quot;, &quot;1&quot;, sep = &quot;-&quot;)) 
+my_date &lt;- ymd(paste(&quot;2015&quot;, &quot;1&quot;, &quot;1&quot;, sep = &quot;-&quot;))
 str(my_date)</code></pre>
 <p>We can apply this operation to each row of the surveys dataset. We extract the vectors <code>surveys$year</code>, <code>surveys$month</code>, and <code>surveys$day</code>. Using <code>paste()</code> we can combine these vectors into a new vector for character dates.</p>
 <pre class="r"><code>dates_char_vec &lt;- paste(surveys$year, surveys$month, surveys$day, sep = &quot;-&quot;)</code></pre>
@@ -1309,9 +1308,9 @@ str(surveys) # notice the new column, with &#39;date&#39; as the class</code></p
 </ul>
 </blockquote>
 <hr />
-<p>You have now completed all the day one learning objectives. It is very common to make mistakes in programming languages, identifying and solving <code>debugging</code> these mistakes makes up a large part of the programming skill-set. Becoming familiar with the basics we have covered today and the inspection tools e.g.  <code>summary()</code>, <code>ls()</code>, <code>str()</code> will set you on a path to being a confident R programmer.</p>
+<p>You have now completed all the day one learning objectives. It is very common to make mistakes in programming languages, identifying and solving <code>debugging</code> these mistakes makes up a large part of the programming skill-set. Becoming familiar with the basics we have covered today and the inspection tools e.g. <code>summary()</code>, <code>ls()</code>, <code>str()</code> will set you on a path to being a confident R programmer.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-01-04 ‒ 🕢 16:29:22
+Page built on: 📆 2022-01-05 ‒ 🕢 09:55:46
 </p>
 </div>
 </div>
