@@ -66,7 +66,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
 
         # Things to move to ./ -- only for Rmd set up files
         if lesson_type == LessonType.r_markdown:
-            for file in ["renv.lock", f"{lesson_name}_setup.R"]:
+            for file in ["renv.lock", f"{lesson_name}_setup.R", "_site.yml"]:
                 copy(f"submodules/{lesson_name}/{file}", f"./{file.split('/')[-1]}")
                 log.info(f"Copied submodules/{lesson_name}/{file} to ./")
 
