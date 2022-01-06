@@ -1,5 +1,9 @@
+---
+layout: page
+title: Setup
+---
 
-#### Data
+## Data
 The data used in this lesson comes from a project observing a small mammal community in southern
 Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
 community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots,
@@ -32,7 +36,7 @@ Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hi
 > **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
 {: .testimonial}
 
-#### Software
+## Software
 
 To interact with spreadsheets, you can use various software - for example Microsoft Excel,
 LibreOffice, Gnumeric, OpenOffice.org, Google Spreadsheets. Commands may differ a bit between programs,
@@ -44,21 +48,21 @@ as it can open Excel spreadsheets, which is the format of the data we will work 
 (also all examples used refer to Excel).
 
 {% comment %}
-##### Windows
+### Windows
 
 - Download the Installer
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Windows should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
 
-##### Mac OS X
+### Mac OS X
 
 - Download the Installer
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Mac should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
 
-##### Linux
+### Linux
 
 - Download the Installer
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
@@ -66,7 +70,7 @@ as it can open Excel spreadsheets, which is the format of the data we will work 
 - Once the installer is downloaded, double click on it and LibreOffice should install.
 {% endcomment %}
 
-#### Now what?
+## Now what?
 
 {% if site.carpentry == "rsg" %}
     {% assign lessonlink = "spreadsheets-introduction" %}
