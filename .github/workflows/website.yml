@@ -78,8 +78,8 @@ jobs:
         run: |
           RMD_PATH=$(find ./collections/_episodes_rmd -name '*.Rmd')
           Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f, knit_root_dir=getwd())' ${RMD_PATH[*]}
-          git add ./collections/_episodes_rmd/*.html
-          git commit ./collections/_episodes_rmd/*.html -m 'Re-build Rmarkdown files' || echo "No changes to commit"
+          git add ./collections/_episodes_rmd/*.md
+          git commit ./collections/_episodes_rmd/*.md -m 'Re-build Rmarkdown files' || echo "No changes to commit"
 
       - name: Run python build scripts
         run: |
