@@ -37,6 +37,22 @@ library(methods)
 suppressPackageStartupMessages(library(tidyverse))
 knitr::opts_chunk$set(results='hide', comment = "#>", purl = FALSE, fig.keep='last')
 
+base_url <- "/" # keep as is
+fig_path <- "fig/" # Output path for figures
+
+# If the document is currently being knit, do this; skip it in normal execution
+if (!is.null(knitr::current_input())){
+  # Set base directories
+  knitr::opts_knit$set(base.url = base_url)
+
+  # Set figure directories
+  knitr::opts_chunk$set(fig.path = fig_path,
+                      cache.path = '../cache/',
+                      message=FALSE, warning=FALSE,
+                      cache = FALSE)
+}
+
+
 ### Custom hooks
 
 ## hook for challenges answers
