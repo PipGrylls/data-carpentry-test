@@ -81,7 +81,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
         dest = f"collections/{directory}/{lesson_name}-lesson"
         Path(dest).mkdir(parents=True, exist_ok=True)
         copy_tree(f"submodules/{lesson_name}/{directory}/", dest)
-        for file in ["reference.md", "_site.yml"]:
+        for file in ["reference.md"]:
             try:
                 dest = f"collections/{directory}/{lesson_name}-lesson"
                 Path(dest).mkdir(parents=True, exist_ok=True)
