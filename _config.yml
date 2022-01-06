@@ -76,8 +76,8 @@ lessons:
     gh-name: r-novice
     type: episode_r
     branch: gh-pages
-    date: 14 January 2022
-    start-time: 15:00
+    date: [14 January 2022, 15 January 2022, 16 January 2022]
+    start-time: [8:30 am, 8:30 am, 8:30 am]
 
   #- title: Managing Academic Software Development
   #  gh-name: project-novice
